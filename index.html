@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio website</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+	<!----hero Section start---->
+
+	<div class="hero">
+		<nav>
+			<h2 class="logo">Meghna <span>Blog's</span></h2>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="about.html">Get to Know Me</a></li>
+			</ul>
+
+		</nav>
+
+		<div class="content">
+			<h4>Hello there!</h4>
+			<h1>I'm Meghna <span>Manoj Nair</span></h1>
+			<h3>Welcome to my <span>creative space</span></h3>
+		</div>
+	</div>
+
+	<!----About section start---->
+	<section class="about">
+		<div class="main">
+			<div class="about-text">
+				<h2 style="text-align:center;">Sneak-Peak</h2>
+					<div class="carousel" style="max-width:500px">
+					  <img class="mySlides w3-animate-fading" src="img/img1.jpg" style="height: 300px;width:100%">
+					  <img class="mySlides w3-animate-fading" src="img/img2.jpg" style="height: 300px;width:100%">
+					  <img class="mySlides w3-animate-fading" src="img/img3.jpg" style="height: 300px;width:100%">
+					</div>
+
+					<script>
+						var myIndex = 0;
+						carousel();
+
+						function carousel() {
+						  var i;
+						  var x = document.getElementsByClassName("mySlides");
+						  for (i = 0; i < x.length; i++) {
+						    x[i].style.display = "none";
+						  }
+						  myIndex++;
+						  if (myIndex > x.length) {myIndex = 1}
+						  x[myIndex-1].style.display = "block";
+						  setTimeout(carousel, 5000);
+						}
+					</script>
+			</div>
+		</div>
+	</section>
+
+	<!------footer start--------->
+	<footer>
+		<p>Meghna Manoj Nair</p>
+		<p>Get in touch with me through these platforms👇🏼</p>
+		<div class="social">
+			<a href="https://www.linkedin.com/in/meghna-manoj-nair-60987b192"><i class="fab fa-linkedin"></i></a>
+			<a href="https://instagram.com/meghnamanojnair"><i class="fab fa-instagram"></i></a>
+			<a href="https://github.com/Meghna19BCE1459"><i class="fab fa-github"></i></a>
+			<a href="https://www.youtube.com/channel/UCQKGcZkRpvUwctkD2dGyr7g"><i class="fab fa-youtube"></i></a>
+		</div>
+	</footer>
+</body>
+</html>
