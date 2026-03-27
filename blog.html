@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — Meghna Manoj Nair</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2357068c'/><text x='50' y='72' font-family='Georgia,serif' font-size='62' font-weight='400' text-anchor='middle' fill='white'>M</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-wrapper { padding: 52px 0 96px; }
+
+    .posts-list { }
+
+    .post-item {
+      display: grid;
+      grid-template-columns: 180px 1fr 60px;
+      gap: 32px; align-items: start;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--gray-200);
+      text-decoration: none; color: inherit;
+      transition: padding-left 0.2s;
+    }
+    .post-item:hover { padding-left: 8px; }
+    .post-item:hover .post-title { color: var(--purple); }
+    .post-item:hover .post-read { color: var(--purple); border-color: var(--purple); }
+
+    .post-category {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--purple);
+      padding-top: 4px; line-height: 1.4;
+    }
+    .post-title {
+      font-family: var(--font-display);
+      font-size: 1.22rem; font-weight: 500; line-height: 1.3;
+      color: var(--black); margin-bottom: 6px;
+      transition: color 0.2s;
+    }
+    .post-desc {
+      font-size: 0.93rem; color: var(--gray-600);
+      line-height: 1.72; font-weight: 400;
+    }
+    .post-read {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+      color: var(--gray-400); padding-top: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      text-align: right;
+    }
+
+    .section-divider {
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px 0 8px;
+    }
+    .section-divider-line { flex: 0; height: 0; }
+    .section-divider-label {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gray-400); white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .post-item { grid-template-columns: 1fr; gap: 6px; }
+      .post-read { text-align: left; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-dot"></span>Meghna Manoj Nair</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="talks.html">Talks</a></li>
+    <li><a href="blog.html" class="active">Writing</a></li>
+    <li><a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" target="_blank">CV ↗</a></li>
+  </ul>
+  <button class="nav-burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="closeMobile()">About</a>
+  <a href="projects.html" onclick="closeMobile()">Projects</a>
+  <a href="talks.html" onclick="closeMobile()">Talks</a>
+  <a href="blog.html" class="active" onclick="closeMobile()">Writing</a>
+  <a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" target="_blank">CV ↗</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <span class="section-label"><b>Writing</b></span>
+    <div class="page-header-inner">
+      <h1>Essays &amp; <em>Perspectives</em></h1>
+    </div>
+  </div>
+</div>
+
+<div class="blog-wrapper">
+  <div class="container">
+    <div class="posts-list">
+
+      <!-- TECH ARTICLES FIRST -->
+
+      <a href="https://meghna-manoj-nair.medium.com/how-ai-apps-finally-plug-into-the-real-world-understanding-mcp-cb01443f74c1" target="_blank" class="post-item reveal">
+        <span class="post-category">AI - MCP</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>How AI Apps Finally Plug into the Real World: Understanding MCP</b></h2>
+          <p class="post-desc">A breakdown of the Model Context Protocol — how it enables AI applications to connect with external tools, APIs, and data sources in a standardized way.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://meghna-manoj-nair.medium.com/rag-systems-dont-just-answer-questions-they-consume-documents-5ed03be05b0f" target="_blank" class="post-item reveal">
+        <span class="post-category">AI - RAG</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>RAG Systems Don't Just Answer Questions — They Consume Documents</b></h2>
+          <p class="post-desc">A deep dive into Retrieval-Augmented Generation: how RAG pipelines ingest, chunk, and index documents to ground language model responses in real content.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://sites.google.com/view/my-covid-diary/home" target="_blank" class="post-item reveal">
+        <span class="post-category">Healthcare & Technology</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>COVID Warriors</b></h2>
+          <p class="post-desc">The fight against COVID-19 and the extraordinary humans who stood at the frontline of a global crisis.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://sites.google.com/view/mycoviddiary/home" target="_blank" class="post-item reveal">
+        <span class="post-category">Robotics</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>Indeed, a Droid Life Saver</b></h2>
+          <p class="post-desc">When AI and robotics step in where humans cannot — and the ethical questions that follow.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://sites.google.com/view/covid-diary-online-education/home" target="_blank" class="post-item reveal">
+        <span class="post-category">EdTech</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>Digital Learning</b></h2>
+          <p class="post-desc">Exploring the promise and the limits of virtual learning — and what education looks like when screens become classrooms.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://sites.google.com/view/technology-meets-education/home" target="_blank" class="post-item reveal">
+        <span class="post-category">EdTech</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>When Technology Meets Education</b></h2>
+          <p class="post-desc">The wonders — and the pitfalls — of technology-driven learning. What happens when we let the tools shape the teaching?</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <!-- SECTION BREAK -->
+      <div class="section-divider reveal">
+        <div class="section-divider-line"></div>
+        <span class="section-divider-label">Personal & Society</span>
+        <div class="section-divider-line"></div>
+      </div>
+
+      <a href="https://sites.google.com/view/feminism-and-gender-equality/home" target="_blank" class="post-item reveal">
+        <span class="post-category">Society</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>Feminism through the Eyes of a Man</b></h2>
+          <p class="post-desc">The race for gender equality — seen from an unusual vantage point. What does advocacy look like from unexpected places?</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://meghna-manoj-nair.medium.com/generation-google-scholarship-for-women-in-computer-science-apac-2021-application-process-cd95ece49823" target="_blank" class="post-item reveal">
+        <span class="post-category">Scholarship</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>My Generation Google Scholarship Journey (APAC 2021)</b></h2>
+          <p class="post-desc">An honest, detailed account of the application process — what worked, what didn't, and what I wish I knew going in.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://sites.google.com/view/women-in-technology-challenges/home" target="_blank" class="post-item reveal">
+        <span class="post-category">Women in Tech</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>Women vs the Tech Industry</b></h2>
+          <p class="post-desc">The real structural challenges women face in computer science — not the polished version, but the honest one.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://sites.google.com/view/not-all-is-fair-in-love-and-wa/home" target="_blank" class="post-item reveal">
+        <span class="post-category">Humanity</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>Not All Is Fair in Love and War</b></h2>
+          <p class="post-desc">On the gradual fading of humanity in a world that moves too fast — and the things we leave behind in the rush.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+      <a href="https://medium.com/@meghna-manoj-nair/navigating-your-educational-journey-from-india-to-usa-31421635bd7b" target="_blank" class="post-item reveal">
+        <span class="post-category">Study Abroad</span>
+        <div class="post-content">
+          <h2 class="post-title"><b>Navigating Your Educational Journey from India to USA</b></h2>
+          <p class="post-desc">A comprehensive guide to preparing for graduate studies abroad — from applications and visas to arriving in New York and making it work.</p>
+        </div>
+        <span class="post-read">Read →</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name"><span class="footer-purple-dot"></span>Meghna Manoj Nair</span>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

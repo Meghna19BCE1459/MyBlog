@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Meghna Manoj Nair</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2357068c'/><text x='50' y='72' font-family='Georgia,serif' font-size='62' font-weight='400' text-anchor='middle' fill='white'>M</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .projects-wrapper { padding: 48px 0 96px; }
+
+    .scholar-banner {
+      display: flex; align-items: center;
+      padding: 16px 22px; margin-bottom: 28px;
+      border: 1px solid var(--purple-light);
+      background: var(--purple-faint);
+    }
+    .scholar-text {
+      font-size: 0.93rem; color: var(--gray-600); line-height: 1.5;
+    }
+    .scholar-link {
+      color: var(--purple); font-weight: 500; text-decoration: none;
+      border-bottom: 1px solid var(--purple-light); padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .scholar-link:hover { border-color: var(--purple); }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200);
+    }
+
+    .project-card {
+      background: var(--white); padding: 30px 28px;
+      display: flex; flex-direction: column; transition: background 0.25s;
+    }
+    .project-card:hover { background: var(--black); }
+    .project-card:hover .proj-num { color: var(--purple-mid); }
+    .project-card:hover .proj-title { color: var(--white); }
+    .project-card:hover .proj-desc { color: #999; }
+    .project-card:hover .proj-tags span { background: #1a1a1a; color: #777; border-color: #2a2a2a; }
+    .project-card:hover .proj-link { color: var(--purple-mid); border-color: rgba(123,47,190,0.35); }
+
+    .proj-num {
+      font-size: 0.63rem; font-weight: 500; letter-spacing: 0.18em;
+      color: var(--purple); margin-bottom: 14px; transition: color 0.25s;
+    }
+    .proj-title {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 500;
+      color: var(--black); margin-bottom: 10px; line-height: 1.3; transition: color 0.25s;
+    }
+    .proj-desc {
+      font-size: 0.92rem; color: var(--gray-600); line-height: 1.72;
+      flex: 1; margin-bottom: 18px; transition: color 0.25s; font-weight: 400;
+    }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+    .proj-tags span {
+      font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-600); border: 1px solid var(--gray-200);
+      padding: 3px 8px; background: var(--gray-100); transition: all 0.25s;
+    }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.71rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--black); text-decoration: none; border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 2px; width: fit-content; transition: all 0.2s;
+    }
+    .proj-link:hover { border-color: currentColor; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-dot"></span>Meghna Manoj Nair</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="talks.html">Talks</a></li>
+    <li><a href="blog.html">Writing</a></li>
+    <li><a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" target="_blank">CV ↗</a></li>
+  </ul>
+  <button class="nav-burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="closeMobile()">About</a>
+  <a href="projects.html" class="active" onclick="closeMobile()">Projects</a>
+  <a href="talks.html" onclick="closeMobile()">Talks</a>
+  <a href="blog.html" onclick="closeMobile()">Writing</a>
+  <a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" target="_blank">CV ↗</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <span class="section-label"><b>Projects</b></span>
+    <div class="page-header-inner">
+      <h1>Selected <em>Work</em></h1>
+    </div>
+  </div>
+</div>
+
+<div class="projects-wrapper">
+  <div class="container">
+
+    <div class="scholar-banner reveal">
+      <p class="scholar-text">My research work and publications are available on my <a href="https://scholar.google.com/citations?user=XaNknzgAAAAJ&hl=en" target="_blank" class="scholar-link">Google Scholar profile ↗</a></p>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card reveal" data-tags="ai-ml data">
+        <span class="proj-num">11 — 2024</span>
+        <h3 class="proj-title"><b>FDNY Hate Crime & Arrest Data Analyzer</b></h3>
+        <p class="proj-desc">Analyzing patterns and trends within NYC crime statistics — NYPD arrests and reported hate crimes — to surface data-driven insights for policy and public safety.</p>
+        <div class="proj-tags"><span>Data Analysis</span><span>Python</span><span>Visualization</span></div>
+        <a href="https://github.com/MeghnaManojNair/FDNY-Hate-Crime-and-Arrest-Data-Visualization" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1" data-tags="ai-ml">
+        <span class="proj-num">05 — 2023</span>
+        <h3 class="proj-title"><b>INTELLIBOT</b></h3>
+        <p class="proj-desc">Voice-assisted chatbot with speech-to-text, sentiment analysis, a real-time COVID dashboard, and offensive text detection — powered by Naïve-Bayes and pattern-matching algorithms.</p>
+        <div class="proj-tags"><span>NLP</span><span>Sentiment Analysis</span><span>Python</span></div>
+        <a href="https://github.com/MeghnaManojNair/INTELLIBOT-Voice-Chatbot-with-Sentiment-Analysis-COVID-Dashboard-Offensive-Text-Detection-" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2" data-tags="ai-ml cv">
+        <span class="proj-num">08 — 2023</span>
+        <h3 class="proj-title"><b>Skin Cancer Detection</b></h3>
+        <p class="proj-desc">Deep learning melanoma detection from dermoscopic images, directing high-risk users to nearby dermatology services with a location-aware medical assistance chatbot.</p>
+        <div class="proj-tags"><span>Deep Learning</span><span>Computer Vision</span><span>Healthcare AI</span></div>
+        <a href="https://github.com/MeghnaManojNair/Skin-Cancer-Detection-using-Deep-Learning-and-Medical-Assistance" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal" data-tags="ai-ml cv">
+        <span class="proj-num">05 — 2024</span>
+        <h3 class="proj-title"><b>Autonomous Intelligent Vehicles</b></h3>
+        <p class="proj-desc">Deep neural networks for real-world autonomous driving — lane detection, multi-object tracking, and traffic signal recognition using live video feeds.</p>
+        <div class="proj-tags"><span>Object Detection</span><span>Deep Learning</span><span>CV</span></div>
+        <a href="https://github.com/MeghnaManojNair/Autonomous-Intelligent-Vehicles-Object-Detection-Object-Tracking-Image-Classification-" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1" data-tags="cv ai-ml">
+        <span class="proj-num">05 — 2022</span>
+        <h3 class="proj-title"><b>Parallelized LBP Face Recognition</b></h3>
+        <p class="proj-desc">A parallelized Local Binary Pattern algorithm for face recognition that improves accuracy and efficiency over conventional approaches through rigorous benchmarking.</p>
+        <div class="proj-tags"><span>Computer Vision</span><span>Parallel Computing</span><span>C++</span></div>
+        <a href="https://github.com/MeghnaManojNair/Parallelized-Local-Binary-Pattern-Approach-for-Face-Recognition-System" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2" data-tags="systems">
+        <span class="proj-num">06 — 2023</span>
+        <h3 class="proj-title"><b>Smart Waste Management System</b></h3>
+        <p class="proj-desc">IoT-driven automated sanitation using Arduino and sensors, with a sprinkler mechanism addressing overflow and hygiene in public spaces through real-time monitoring.</p>
+        <div class="proj-tags"><span>IoT</span><span>Arduino</span><span>Embedded Systems</span></div>
+        <a href="https://github.com/MeghnaManojNair/Smart-Waste-Management-System" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal" data-tags="systems">
+        <span class="proj-num">07 — 2022</span>
+        <h3 class="proj-title"><b>EduNation</b></h3>
+        <p class="proj-desc">Education portal for navigating higher studies — helping students discover and evaluate universities with personalized lists, peer reviews, and secure authenticated interactions.</p>
+        <div class="proj-tags"><span>Web App</span><span>Full Stack</span><span>EdTech</span></div>
+        <a href="#" class="proj-link">GitHub →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1" data-tags="ai-ml systems">
+        <span class="proj-num">08 — 2024</span>
+        <h3 class="proj-title"><b>Cryptarithmetic Solver</b></h3>
+        <p class="proj-desc">Backtracking algorithm that maps letters to unique digits in arithmetic equations, enforcing no-leading-zeros and distinct-digits constraints from file input.</p>
+        <div class="proj-tags"><span>Algorithms</span><span>Backtracking</span><span>Java</span></div>
+        <a href="https://github.com/MeghnaManojNair/Cryptarithmetic-Solver" target="_blank" class="proj-link">GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name"><span class="footer-purple-dot"></span>Meghna Manoj Nair</span>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

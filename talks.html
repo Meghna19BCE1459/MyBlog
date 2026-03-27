@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talks — Meghna Manoj Nair</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2357068c'/><text x='50' y='72' font-family='Georgia,serif' font-size='62' font-weight='400' text-anchor='middle' fill='white'>M</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .talks-wrapper { padding: 48px 0 96px; }
+
+    .year-group { margin-bottom: 48px; }
+    .year-heading {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 500;
+      color: var(--black); line-height: 1; margin-bottom: 0;
+      letter-spacing: 0.04em; padding: 10px 0 6px;
+      border-bottom: 2px solid var(--purple);
+      display: table;
+    }
+    .talks-list { border-top: 1px solid var(--gray-200); }
+
+    .talk-item {
+      display: grid; grid-template-columns: 36px 1fr auto;
+      gap: 24px; align-items: start; padding: 24px 0;
+      border-bottom: 1px solid var(--gray-200); transition: padding-left 0.2s;
+    }
+    .talk-item:hover { padding-left: 8px; }
+    .talk-item:hover .talk-number { color: var(--purple); }
+    .talk-item:hover .talk-title { color: var(--purple); }
+
+    .talk-number {
+      font-size: 0.66rem; font-weight: 500; letter-spacing: 0.1em;
+      color: var(--gray-400); padding-top: 3px; transition: color 0.2s; align-self: flex-start;
+    }
+    .talk-content {}
+    .talk-title {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 500;
+      color: var(--black); margin-bottom: 4px; line-height: 1.3; transition: color 0.2s;
+    }
+    .talk-venue {
+      font-size: 0.9rem; color: var(--gray-600); margin-bottom: 8px; font-weight: 400;
+    }
+    .talk-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .talk-tag {
+      font-size: 0.63rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--purple); border: 1px solid var(--purple-light);
+      padding: 3px 8px; background: var(--purple-faint);
+    }
+    .talk-location {
+      font-size: 0.63rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-400); border: 1px solid var(--gray-200); padding: 3px 8px;
+    }
+    .talk-right { padding-top: 3px; }
+    .talk-link {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray-400); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s;
+    }
+    .talk-link:hover { color: var(--purple); border-color: var(--purple); }
+
+    .invite-cta {
+      margin-top: 56px; padding: 44px 40px;
+      border: 1px solid var(--gray-200); display: flex;
+      align-items: center; justify-content: space-between;
+      gap: 28px; flex-wrap: wrap; background: var(--purple-faint);
+    }
+    .invite-text h3 {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 6px;
+    }
+    .invite-text h3 em { font-style: italic; color: var(--purple); }
+    .invite-text p { font-size: 0.93rem; color: var(--gray-600); max-width: 420px; line-height: 1.7; font-weight: 400; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .talk-item { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+      .talk-number { display: none; }
+      .talk-right { text-align: left; }
+      .year-heading { font-size: 2.2rem; }
+      .invite-cta { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-dot"></span>Meghna Manoj Nair</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="talks.html" class="active">Talks</a></li>
+    <li><a href="blog.html">Writing</a></li>
+    <li><a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" target="_blank">CV ↗</a></li>
+  </ul>
+  <button class="nav-burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="closeMobile()">About</a>
+  <a href="projects.html" onclick="closeMobile()">Projects</a>
+  <a href="talks.html" class="active" onclick="closeMobile()">Talks</a>
+  <a href="blog.html" onclick="closeMobile()">Writing</a>
+  <a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" target="_blank">CV ↗</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <span class="section-label"><b>Talks & Presentations</b></span>
+    <div class="page-header-inner">
+      <h1>On Stage &amp; <em>In the Room</em></h1>
+      <span class="page-header-meta">Invited talks · Panels · Lectures</span>
+    </div>
+  </div>
+</div>
+
+<div class="talks-wrapper">
+  <div class="container">
+
+    <div class="year-group reveal">
+      <div class="year-heading">2025</div>
+      <div class="talks-list">
+        <div class="talk-item">
+          <span class="talk-number">01</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>PETAL's Panel & Networking Event</b></h3>
+            <p class="talk-venue">PETAL (Policy Ethics Tech Accountability & Law) Panel & Networking Event</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Panelist</span>
+              <span class="talk-location">NYU Bronfman Center, 7E 10th St, NYC</span>
+            </div>
+          </div>
+        </div>
+        <div class="talk-item">
+          <span class="talk-number">02</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>Emerging Applications of AI in Image Processing Workshop</b></h3>
+            <p class="talk-venue">International Faculty Development Program</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Speaker</span>
+              <span class="talk-location">RIT Insitute of Technology, Chennai, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="talk-item">
+          <span class="talk-number">03</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>University Makerspace & Innovation Panel</b></h3>
+            <p class="talk-venue">The Guild, Stuyvesant High School</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Panelist</span>
+              <span class="talk-location">Virtual</span>
+            </div>
+          </div>
+          <div class="talk-right"><a href="https://docs.google.com/presentation/d/1o3nZ-ipC9v5pA-0JgBYgz9uDfXce0txvJbs9qrHWXAs/edit?usp=sharing" class="talk-link">Slides ↗</a></div>
+        </div>
+        <div class="talk-item">
+          <span class="talk-number">04</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>WEST Fest Panel, Weekend at the Square</b></h3>
+            <p class="talk-venue">NYU Tandon School of Engineering</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Panelist</span>
+              <span class="talk-location">5 MTC, Brooklyn, NYC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-group reveal">
+      <div class="year-heading">2024</div>
+      <div class="talks-list">
+        <div class="talk-item">
+          <span class="talk-number">05</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>TandonX - Tackling Bias: Designing Fairer AI – The Importance of Diverse Teams in AI Development</b></h3>
+            <p class="talk-venue">NYU Tandon School of Engineering</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Moderator</span>
+              <span class="talk-location">5 MTC, Brooklyn, NYC</span>
+            </div>
+          </div>
+          <div class="talk-right"><a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_ai-diversityandinclusion-tandonx-ugcPost-7271141176261455872-Grvh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC1VxKkB3W9MiRaPKz5gvB-xLYb7QOvZgRE" class="talk-link">Link ↗</a></div>
+        </div>
+        <div class="talk-item">
+          <span class="talk-number">06</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>WoMentorship Panel</b></h3>
+            <p class="talk-venue">NYU WoMentorship Program</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Panelist</span>
+              <span class="talk-location">2 MTC, Brooklyn, NYC</span>
+            </div>
+          </div>
+          <div class="talk-right"><a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_womentorship-womeninstem-nyutandon-ugcPost-7243695548963205121-f8SG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC1VxKkB3W9MiRaPKz5gvB-xLYb7QOvZgRE" class="talk-link">Link ↗</a></div>
+        </div>
+        <div class="talk-item">
+          <span class="talk-number">07</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>Tea Time Session on STEM and AI</b></h3>
+            <p class="talk-venue">Fireside Chat</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Moderator</span>
+              <span class="talk-location">1 MTC, Brooklyn, NYC</span>
+            </div>
+          </div>
+          <div class="talk-right"><a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_techtales-nyutandon-alumnirelations-ugcPost-7193662059744555008-RqaL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC1VxKkB3W9MiRaPKz5gvB-xLYb7QOvZgRE" class="talk-link">Link ↗</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-group reveal">
+      <div class="year-heading">2023</div>
+      <div class="talks-list">
+        <div class="talk-item">
+          <span class="talk-number">08</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>TEDxMACE - Tenets of Survival</b></h3>
+            <p class="talk-venue">TEDx</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Speaker</span>
+              <span class="talk-location">Mar Athanasius College of Engineering, Kerala, India</span>
+            </div>
+          </div>
+          <div class="talk-right"><a href="https://youtu.be/Tlu_9DYxwNg?si=8L6rujgkLGMwdF49" class="talk-link">Recording ↗</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-group reveal">
+      <div class="year-heading">2022</div>
+      <div class="talks-list">
+        <div class="talk-item">
+          <span class="talk-number">09</span>
+          <div class="talk-content">
+            <h3 class="talk-title"><b>Generation Google Scholarship (APAC) Retreat</b></h3>
+            <p class="talk-venue">Google Talent Management Team, Asia Pacific Region</p>
+            <div class="talk-meta">
+              <span class="talk-tag">Speaker</span>
+              <span class="talk-location">Virtual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name"><span class="footer-purple-dot"></span>Meghna Manoj Nair</span>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
