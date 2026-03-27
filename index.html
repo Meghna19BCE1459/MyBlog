@@ -1,304 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meghna Manoj Nair</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2357068c'/><text x='50' y='72' font-family='Georgia,serif' font-size='62' font-weight='400' text-anchor='middle' fill='white'>M</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* HERO */
+    #home {
+      min-height: 0; display: flex; align-items: center;
+      padding-top: 110px; padding-bottom: 72px;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center; width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--purple); margin-bottom: 20px;
+    }
+    .hero-tag-dot { width: 5px; height: 5px; background: var(--purple); border-radius: 50%; }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.9rem, 5.2vw, 4.8rem);
+      font-weight: 300; line-height: 1.06; letter-spacing: -0.01em;
+      color: var(--black); margin-bottom: 20px;
+    }
+    .hero-name em { font-style: italic; }
+    .hero-desc {
+      font-size: 1rem; color: var(--gray-600); max-width: 420px;
+      margin-bottom: 32px; line-height: 1.8; font-weight: 400;
+    }
+    .hero-social-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-social-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.74rem; font-weight: 500; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--black);
+      border: 1.5px solid var(--gray-200); padding: 10px 18px;
+      text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .hero-social-btn:hover { border-color: var(--purple); color: var(--purple); }
+    .hero-social-btn.primary { background: var(--purple); color: var(--white); border-color: var(--purple); }
+    .hero-social-btn.primary:hover { background: var(--purple-mid); border-color: var(--purple-mid); color: var(--white); }
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+    .hero-img-wrap { position: relative; display: flex; justify-content: flex-end; }
+    .hero-img-frame { position: relative; width: min(360px, 100%); }
+    .hero-img-frame::before {
+      content: ''; position: absolute;
+      top: 14px; left: 14px; right: -14px; bottom: -14px;
+      border: 1.5px solid var(--purple-light); z-index: 0;
+    }
+    .hero-img-frame img {
+      position: relative; z-index: 1; width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; object-position: top; display: block; filter: grayscale(10%);
+    }
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    /* ABOUT */
+    #about { background: var(--gray-100); }
+    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: stretch; }
+    .about-sidebar { display: flex; }
+    .about-sidebar img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover; object-position: top center;
+      filter: grayscale(15%);
+    }
+    .about-text {
+      color: var(--gray-600); line-height: 1.82; font-size: 1rem; margin-bottom: 22px;
+    }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
+    .skill-tag {
+      font-size: 0.74rem; letter-spacing: 0.05em; color: var(--gray-600);
+      border: 1px solid var(--gray-200); padding: 4px 11px; background: var(--white);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--purple); color: var(--purple); }
 
-        <title>Meghna Blogs'</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Meghna <span style="color:#ff5050">Blogs'</span> </a>
-                </div>
+    /* AWARDS & LEADERSHIP */
+    #awards { background: var(--gray-100); }
+    .awards-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    }
+    .awards-col-title {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--purple);
+      margin-bottom: 20px; display: block;
+    }
+    .award-list { list-style: none; }
+    .award-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--gray-200);
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-dot {
+      width: 5px; height: 5px; background: var(--purple);
+      border-radius: 50%; flex-shrink: 0; margin-top: 8px;
+    }
+    .award-text {
+      font-size: 0.93rem; color: var(--gray-800); line-height: 1.6; font-weight: 400;
+    }
+    .award-text a {
+      color: var(--purple); text-decoration: none;
+      border-bottom: 1px solid var(--purple-light);
+      transition: border-color 0.2s;
+    }
+    .award-text a:hover { border-color: var(--purple); }
+    .award-year {
+      display: block; font-size: 0.72rem; color: var(--gray-400);
+      letter-spacing: 0.04em; margin-top: 2px;
+    }
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Resume</a></li>
-                        <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Hobbies</a></li>
-                        <li class="nav__item"><a href="blognew.html" class="nav__link">Blog</a></li>
-                    </ul>
-                </div>
+    /* HOBBIES */
+    #hobbies { background: var(--white); }
+    .hobbies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .hobby-card { position: relative; overflow: hidden; aspect-ratio: 1; }
+    .hobby-card img {
+      width: 100%; height: 100%; object-fit: cover; filter: grayscale(45%);
+      transition: filter 0.4s, transform 0.5s; display: block;
+    }
+    .hobby-card:hover img { filter: grayscale(0%); transform: scale(1.04); }
+    .hobby-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 36px 16px 14px;
+      background: linear-gradient(transparent, rgba(10,10,10,0.72));
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--white);
+    }
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+    /* CONTACT */
+    #contact { background: #111; padding: 36px 0; }
+    #contact .section-label { color: #c084f5; margin-bottom: 6px; }
+    .contact-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+    .contact-item {
+      display: inline-flex; align-items: center;
+      font-size: 0.92rem; font-weight: 500; color: #ddd;
+      text-decoration: none; letter-spacing: 0.01em;
+      border-bottom: 1px solid transparent; padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-item:hover { color: #c084f5; border-color: #c084f5; }
+    .contact-sep { color: #555; font-size: 0.9rem; }
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h2 class="home__title">Hello, <br>I'm <span class="home__title-color" style="color:#ff5050">Meghna Manoj Nair!</span></h2>
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-img-wrap { justify-content: center; }
+      .hero-img-frame { width: min(300px, 88%); }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+      .about-sidebar { display: block; }
+      .about-sidebar img { max-height: 280px; width: 100%; object-fit: cover; }
+      .awards-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      :root { --section-gap: 56px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .hero-name { font-size: 2.6rem; }
+      .hero-social-row { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
 
-                    <p style="font-size:50px;font-weight:bolder;font-family: 'Tangerine', sans-serif;">Here's a quick sneak peek into <span style="color:#ff5050">my world!</span></p>
-                </div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-dot"></span>Meghna Manoj Nair</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="talks.html">Talks</a></li>
+    <li><a href="blog.html">Writing</a></li>
+    <li><a href="https://drive.google.com/file/d/1GXk5ZhbuiduPXcwgqkXfEfnUygiLKU1U/view?usp=sharing" target="_blank">CV ↗</a></li>
+  </ul>
+  <button class="nav-burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
-                <div class="home__social">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="projects.html" onclick="closeMobile()">Projects</a>
+  <a href="talks.html" onclick="closeMobile()">Talks</a>
+  <a href="blog.html" onclick="closeMobile()">Writing</a>
+  <a href="https://drive.google.com/file/d/1GXk5ZhbuiduPXcwgqkXfEfnUygiLKU1U/view?usp=sharing" target="_blank">CV ↗</a>
+</div>
 
-                </div>
+<!-- HERO -->
+<section id="home">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag"><span class="hero-tag-dot"></span><b>PhD Candidate · Computer Science · NYU</b></div>
+        <h1 class="hero-name">Meghna<br><em>Manoj Nair</em></h1>
+        <p class="hero-desc">
+          I'm a researcher and engineer working at the intersection of AI, privacy, ethics, and technology governance. I'm interested in shaping systems that are innovative, equitable, and grounded in public impact.
+        </p>
+      </div>
+      <div class="hero-img-wrap">
+        <div class="hero-img-frame">
+          <img src="assets/img/pic2.jpeg" alt="Meghna Manoj Nair">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="home__img">
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <span class="section-label reveal"><b>About</b></span>
+    <div class="about-grid">
+      <div class="about-sidebar reveal">
+        <img src="assets/img/pic9.jpg" alt="Meghna">
+      </div>
+      <div class="about-content">
+        <h2 class="section-heading reveal">Rooted in Research,<br><em>Driven by Impact</em></h2>
+        <p class="about-text reveal reveal-delay-1">
+          I am a Computer Science researcher and PhD student interested in designing and studying technologies that create meaningful social impact. My current work focuses on privacy and security in EdTech platforms, AI and LLM governance, and the policy, ethical, and sociotechnical challenges that shape how large-scale digital systems are designed and deployed. I am especially interested in how privacy policies, governance frameworks, and ethical principles translate into real-world technical practice.
+        </p>
+        <p class="about-text reveal reveal-delay-2">
+          Beyond research, I'm a public speaker, educator, and advocate for diversity and inclusion in STEM. I always welcome challenges with curiosity and a commitment to doing work that genuinely matters.
+        </p>
+        <div class="skills-list reveal reveal-delay-3">
+          <span class="skill-tag">Privacy</span>
+          <span class="skill-tag">Responsible AI</span>
+          <span class="skill-tag">Tech Policy</span>
+          <span class="skill-tag">Artificial Intelligence</span>
+          <span class="skill-tag">Data Governance</span>
+          <span class="skill-tag">Data Analysis</span>
+          <span class="skill-tag">Qualitative Coding</span>
+          <span class="skill-tag">Python, Java, SQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/pic1.png"/>
-                        </g>
-                    </svg>
-                </div>
-            </section>
+<!-- AWARDS & LEADERSHIP -->
+<section id="awards">
+  <div class="container">
+    <span class="section-label reveal"><b>Honors & Leadership</b></span>
+    <h2 class="section-heading reveal">Recognition &amp; <em>Roles</em></h2>
+    <div class="awards-grid">
 
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title" style="color:#ff5050">Who Am I?</h2>
+      <!-- AWARDS COLUMN -->
+      <div class="reveal">
+        <span class="awards-col-title">Awards & Scholarships</span>
+        <ul class="award-list">
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/pic2.jpeg" alt="">
-                    </div>
-
-                    <div>
-                        <h2 class="about__subtitle">Engineer by Profession; Educationist by Zeal!</h2>
-                        <p class="about__text">I'm Meghna Manoj Nair, a CS student pursuing my graduate studies at NYU. My motto in life is to nourish and strengthen my passion for programming, creativity, analytical skills, research, teaching and public speaking, in order to bring about the best in me while doing something for the society. As a budding engineer and a public speaker, I have always voiced out my opinions, thoughts and perspectives on topics and ideas that are worth spreading. A dedicated and hardworking individual, I welcome challenges with a smile and grab every relevant opportunity that comes my way. I’m passionate about programming and I have indulged in research activities in various technical domains over the last few years. My commitment to diversity, inclusiveness, equality, and a rational mindset is what keeps me hustling in this world!</p>
-                    </div>
-                </div>
-            </section>
-
-            <!--===== RESUME =====-->
-            <section class="contact skills section" id="contact">
-                <h2 class="section-title" style="color:#ff5050">Professional Skills and Experience</h2>
-                <div class="container">
-                  <div class="button">
-                    <a href="https://drive.google.com/file/d/1yhVRJy5q4B4qWVhWImnmpUzOo37vvYgb/view?usp=sharing" class="btn fx01" target="_blank" rel="noopener noreferrer">
-                      <span>Resume</span>
-                    </a>
-                  </div>
-                </div>
-                <br>
-
-                    <div class="skills__container bd-grid">
-                        <div>
-                            <br>
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <i class='bx bxl-html5 skills__icon'></i>
-                                    <span class="skills__name">Java</span>
-                                </div>
-                                <div class="skills__bar skills__html">
-
-                                </div>
-
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <i class='bx bxl-css3 skills__icon'></i>
-                                    <span class="skills__name">C/C++</span>
-                                </div>
-                                <div class="skills__bar skills__css">
-
-                                </div>
-
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <i class='bx bxl-javascript skills__icon' ></i>
-                                    <span class="skills__name">HTML, CSS, JavaScript, React</span>
-                                </div>
-                                <div class="skills__bar skills__js">
-
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <i class='bx bxs-paint skills__icon'></i>
-                                    <span class="skills__name">AI, ML, Computer Vision, Data Science</span>
-                                </div>
-                                <div class="skills__bar skills__ux">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <img src="assets/img/pic9.jpg" alt="" class="skills__img">
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!--===== PROJECTS =====-->
-            <section class="projects section" id="projects">
-                <h2 class="section-title" style="color:#ff5050;">Projects</h2>
-                <div class="projects__container bd-grid">
-                    <!-- Project 1 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p>FDNY Hate Crime and Arrest Data Aanalyzer</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This project focuses on analyzing underlying patterns and trends within NYC's crime statistics, particularly NYPD arrests and reported hate crimes. </p>
-                                <a href="https://github.com/MeghnaManojNair/FDNY-Hate-Crime-and-Arrest-Data-Visualization" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p> <span style="text-decoration: underline;">INTELLIBOT</span> <br> Voice Assisted Chatbot with Sentiment Analysis, COVID Dashboard, and Offensive Text Detection</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>INTELLIBOT is an advanced chatbot with speech-to-text and text-to-speech features, using Naïve-Bayes and pattern matching algorithms for customized user experiences and improved system performance.</p>
-                                <a href="https://github.com/MeghnaManojNair/INTELLIBOT-Voice-Chatbot-with-Sentiment-Analysis-COVID-Dashboard-Offensive-Text-Detection-" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 3 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p>Skin Cancer Detection using Deep Learning and Medical Assistance</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This application leverages deep learning to detect melanoma from uploaded skin images, directing high-risk users to nearby dermatology services and featuring an interactive chatbot for skin cancer information.</p>
-                                <a href="https://github.com/MeghnaManojNair/Skin-Cancer-Detection-using-Deep-Learning-and-Medical-Assistance" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p> <span style="text-decoration: underline;">Autonomous Intelligent Vehicles</span><br>Object Detection, Object Tracking, and Image Classification</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This project focuses on developing deep neural network models for autonomous vehicles, addressing lane detection, object detection, and traffic signal recognition using real-time video feeds to enhance driving precision and safety.</p>
-                                <a href="https://github.com/MeghnaManojNair/Autonomous-Intelligent-Vehicles-Object-Detection-Object-Tracking-Image-Classification-" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="projects__container bd-grid">
-                    <!-- Project 5 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p>Parallelized Local Binary Pattern Approach for Face Recognition System</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This project proposes a parallelized Local Binary Pattern (LBP) face recognition algorithm to enhance accuracy and efficiency, comparing its performance with conventional algorithms.</p>
-                                <a href="https://github.com/MeghnaManojNair/Parallelized-Local-Binary-Pattern-Approach-for-Face-Recognition-System" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 5 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p>Smart Waste Management System</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This project proposes a smart waste management system using an Arduino board and sensors for automated sanitation, addressing garbage overflow and hygiene issues using a sprinkler mechanism to sanitize garbage cans.</p>
-                                <a href="https://github.com/MeghnaManojNair/Smart-Waste-Management-System" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 7 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p><span style="text-decoration: underline;">EduNation</span><br>Education Portal for Navigating Higher Studies</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This is an application designed to assist students in discovering and evaluating universities securely. It features personalized college lists, user reviews, and optimized interactions for enhanced efficiency and user satisfaction.</p>
-                                <a href="EduNation-The-Education-Portal-for-Navigating-Higher-Studies" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 8 -->
-                    <div class="project__card">
-                        <div class="project__card-inner">
-                            <div class="project__card-front">
-                                <p>Cryptarithmetic Solver</p>
-                            </div>
-                            <div class="project__card-back">
-                                <p>This project uses the Backtracking Algorithm to solve cryptarithmetics by mapping letters to unique digits in equations, ensuring no leading zeros and distinct digits per letter, reading from a text file, and displaying correct substitutions.</p>
-                                <a href="https://github.com/MeghnaManojNair/Cryptarithmetic-Solver" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--===== HOBBIES =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title" style="color:#ff5050;">My Passion</h2>
-
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="assets/img/pic3.jpg" alt="">
-                        <p style="text-align:center;color:#ff5050;">Public Speaking</p>
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/pic4.jpeg" alt="">
-                        <p style="text-align:center;color:#ff5050;">Indian Classical Dance</p>
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/pic5.png" alt="">
-                        <p style="text-align:center;color:#ff5050;">Teaching</p>
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/pic6.jpg" alt="">
-                        <p style="text-align:center;color:#ff5050;">Skydiving</p>
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/pic7.jpg" alt="">
-                        <p style="text-align:center;color:#ff5050;">Horse Riding</p>
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/pic8.jpg" alt="">
-                        <p style="text-align:center;color:#ff5050;">Programming</p>
-                    </a>
-                </div>
-            </section>
-            
-
-        </main>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Get in Touch with Me!</p>
-            <div class="footer__social">
-                <a href="https://www.linkedin.com/in/meghna-manoj-nair-60987b192/" class="footer__icon" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin' ></i></a>
-                <a href="https://www.instagram.com/meghnamanojnair" class="footer__icon" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram' ></i></a>
-                <a href="https://scholar.google.com/citations?user=XaNknzgAAAAJ&hl=en" class="footer__icon" target="_blank" rel="noopener noreferrer"><i class='bx bxl-google'></i></a>
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              NYU Tandon School of Engineering Fellowship
+              <span class="award-year">2025 – 2026</span>
             </div>
+          </li>
 
-        </footer>
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              NYU Tandon Merit Scholarship
+              <span class="award-year">2023 – 2025</span>
+            </div>
+          </li>
 
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_ghc2024-womenintech-softwareengineering-activity-7247300407088005120-vLbD" target="_blank">NYU Tandon Full-Ride Scholarship</a> for Grace Hopper Celebration
+              <span class="award-year">2024</span>
+            </div>
+          </li>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_google-googlescholar-computerscience-activity-6805033763572072448-nM02" target="_blank">Generation Google Scholarship</a> for Women in Computer Science, Asia Pacific
+              <span class="award-year">2021</span>
+            </div>
+          </li>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_uramscholarship-computerscience-research-activity-6937343345207701504-PDVB" target="_blank">Micron Technology University Research Alliance Scholarship</a>
+              <span class="award-year">2022</span>
+            </div>
+          </li>
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <a href="https://www.linkedin.com/posts/meghna-manoj-nair-60987b192_computerscience-phd-security-activity-7364743613777383425-Vm2R" target="_blank">Represented NYU Tandon at the All University Commencement Ceremony</a>
+              <span class="award-year">2025</span>
+            </div>
+          </li>
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              Hamdan Bin Rashid Al Maktoum Award for Distinguished Academic Performance, UAE
+              <span class="award-year">2015</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- LEADERSHIP COLUMN -->
+      <div class="reveal reveal-delay-1">
+        <span class="awards-col-title">Leadership & Service</span>
+        <ul class="award-list">
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <strong>Graduate Student Council, NYU Tandon</strong> — Vice President of Programming (2024–25) &amp; Doctoral Programming Coordinator (2025–Present)
+            </div>
+          </li>
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <strong>Graduate Orientation Captain</strong>, NYU Office of Student Leadership and Engagement
+              <span class="award-year">Fall 2024, Spring 2025, Spring 2026</span>
+            </div>
+          </li>
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <strong>The WoMentorship Program</strong> — Mentor
+              <span class="award-year">2025 – Present</span>
+            </div>
+          </li>
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <strong>Microsoft Learn Student Ambassador</strong>
+              <span class="award-year">2021 – 2023</span>
+            </div>
+          </li>
+
+          <li class="award-item">
+            <span class="award-dot"></span>
+            <div class="award-text">
+              <strong>Intel Student Ambassador</strong>
+              <span class="award-year">2021 – 2023</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="container">
+    <span class="section-label reveal"><b>Hobbies</b></span>
+    <h2 class="section-heading reveal">Beyond Work</h2>
+    <div class="hobbies-grid">
+      <div class="hobby-card reveal"><img src="assets/img/pic3.jpg" alt="Public Speaking"><span class="hobby-label">Public Speaking</span></div>
+      <div class="hobby-card reveal reveal-delay-1"><img src="assets/img/pic4.jpeg" alt="Indian Classical Dance"><span class="hobby-label">Indian Classical Dance</span></div>
+      <div class="hobby-card reveal reveal-delay-2"><img src="assets/img/pic5.png" alt="Teaching"><span class="hobby-label">Teaching</span></div>
+      <div class="hobby-card reveal"><img src="assets/img/pic6.jpg" alt="Skydiving"><span class="hobby-label">Skydiving</span></div>
+      <div class="hobby-card reveal reveal-delay-1"><img src="assets/img/pic7.jpg" alt="Horse Riding"><span class="hobby-label">Horse Riding</span></div>
+      <div class="hobby-card reveal reveal-delay-2"><img src="assets/img/pic8.jpg" alt="Programming"><span class="hobby-label">Programming</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label reveal"><b>Get in Touch</b></span>
+    <div class="contact-row reveal">
+      <a href="https://www.linkedin.com/in/meghna-manoj-nair-60987b192/" target="_blank" class="contact-item">LinkedIn ↗</a>
+      <span class="contact-sep">·</span>
+      <a href="mailto:mnairmeghna@gmail.com" class="contact-item">mnairmeghna@gmail.com ↗</a>
+      <span class="contact-sep">·</span>
+      <a href="https://scholar.google.com/citations?user=XaNknzgAAAAJ&hl=en" target="_blank" class="contact-item">Google Scholar ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name"><span class="footer-purple-dot"></span>Meghna Manoj Nair</span>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('#home .hero-text > *').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(18px);transition:opacity 0.65s ease ${i*0.12}s,transform 0.65s ease ${i*0.12}s`;
+    setTimeout(() => { el.style.opacity='1'; el.style.transform='translateY(0)'; }, 80);
+  });
+  const frame = document.querySelector('.hero-img-frame');
+  if (frame) {
+    frame.style.cssText = 'opacity:0;transform:translateY(14px);transition:opacity 0.85s ease 0.4s,transform 0.85s ease 0.4s';
+    setTimeout(() => { frame.style.opacity='1'; frame.style.transform='translateY(0)'; }, 80);
+  }
+</script>
+</body>
 </html>
